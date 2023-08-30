@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="shortcut icon"
+			href="./assets/images/khayyam.png"
+			type="image/x-icon"
+		/>
+		<title>Khayam</title>
+		<link rel="stylesheet" href="./assets/css/style.css" />
+	</head>
+	<body>
+		<section class="container">
+			<header class="header">
+				<img class="logo" src="./assets/images/khayyam.png" alt="logo" />
+				<h1 class="title titleFa">خیام</h1>
+				<h1 class="title titleEn">khayyam</h1>
+			</header>
+			<nav class="shapes_slider">
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="square"></section>
+					</section>
+					<p class="shape_name">مربع</p>
+				</section>
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="rectangle"></section>
+					</section>
+					<p class="shape_name">مستطیل</p>
+				</section>
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="equilateralTriangle"></section>
+					</section>
+					<p class="shape_name">مثلث متساوی الساقین</p>
+				</section>
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="isoscelesTriangle"></section>
+					</section>
+					<p class="shape_name">مثلث متساوی الاضلاع</p>
+				</section>
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="rightTriangle"></section>
+					</section>
+					<p class="shape_name">مثلث قائم الزاویه</p>
+				</section>
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="circle"></section>
+					</section>
+					<p class="shape_name">دایره</p>
+				</section>
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="semicircular"></section>
+					</section>
+					<p class="shape_name">نیم دایره</p>
+				</section>
+				<section class="shape">
+					<section class="shape_pic">
+						<section class="parallelogram"></section>
+					</section>
+					<p class="shape_name">متوازی الاضلاع</p>
+				</section>
+			</nav>
+			<main class="calculate_box">
+				<section class="selectedShape">
+					<img
+						loading="lazy"
+						id="shapeSelect"
+						class="squareSelect"
+						src="./assets/images/square.png"
+						alt="shape"
+					/>
+				</section>
+				<section class="calculateMode">
+					<input
+						type="radio"
+						name="calculateMode"
+						id="environmentRadioBtn"
+						checked
+					/>
+					<label for="environmentRadioBtn" class="environment_btn">محیط</label>
+
+					<input type="radio" name="calculateMode" id="areaRadioBtn" />
+					<label for="areaRadioBtn" class="area_btn">مساحت</label>
+
+					<section id="inputs" class="square_inputs">
+						<label id="length_label" for="length_field">
+							<section class="length_name">X</section>
+							<input type="number" id="length_field" max="2" value="0" />
+						</label>
+
+						<label id="width_label" for="width_field">
+							<section class="width_name">Y</section>
+							<input type="number" id="width_field" max="2" value="0" />
+						</label>
+
+						<label id="height_label" for="height_field">
+							<section class="height_name">Z</section>
+							<input type="number" id="height_field" max="2" value="0" />
+						</label>
+					</section>
+					<section class="calculate_result">
+						<section class="formula">4 &times X</section>
+						<section class="result">
+							<span>جواب:</span>
+							<p class="result_final">0</p>
+						</section>
+					</section>
+				</section>
+				<button class="result_btn">محاسبه</button>
+			</main>
+		</section>
+
+		<script src="./assets/js/shapes.js"></script>
+		<script type="module" src="./assets/js/main.js"></script>
+	</body>
+</html>

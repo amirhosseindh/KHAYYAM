@@ -1,0 +1,377 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: 0;
+	border: 0;
+	font-family: Morabba;
+}
+:root {
+	--titleColor: #ecc8af;
+	--primaryTextColor: #212121;
+	--bg: #182f41;
+	--bgNav: #7f9bc2;
+	--bgBox: #182f41;
+	--btn: #37abbf;
+	--btnShadow: #287d8b;
+	--darkShadow: #0c1821;
+	--lightShadow: #244762;
+	--shapeColor: #ecc8af;
+}
+@font-face {
+	font-family: Morabba;
+	src: url(../fonts/Morabba-SemiBold.ttf);
+}
+body {
+	background: var(--bg);
+	overflow: hidden;
+}
+
+.container .logo {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 80px;
+	height: 80px;
+}
+.container .header .title {
+	text-align: center;
+	line-height: 35px;
+	cursor: default;
+}
+.container .header .titleFa {
+	font-size: 2.5rem;
+	color: var(--titleColor);
+	margin-top: 15px;
+}
+.container .header .titleEn {
+	font-family: sans-serif;
+	text-transform: uppercase;
+	font-size: 17px;
+	letter-spacing: 7px;
+	color: var(--bgNav);
+}
+
+.container .shapes_slider {
+	position: relative;
+	width: 100%;
+	height: 170px;
+	background: var(--bgNav);
+	padding: 0 20px;
+	overflow: scroll hidden;
+	scroll-snap-type: x mandatory;
+	display: flex;
+	gap: 20px;
+	scrollbar-width: none;
+}
+.container .shapes_slider::-webkit-scrollbar {
+	display: none;
+}
+
+.container .shapes_slider .shape {
+	height: inherit;
+	color: var(--primaryTextColor);
+	flex: 0 0 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	scroll-snap-align: start;
+	cursor: pointer;
+}
+.container .shapes_slider .shape .shape_pic {
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container .shapes_slider .shape .shape_name {
+	margin-top: 10px;
+}
+
+.square {
+	width: 100px;
+	height: 100px;
+	background: var(--shapeColor);
+}
+.rectangle {
+	width: 100px;
+	height: 70px;
+	background: var(--shapeColor);
+}
+.equilateralTriangle {
+	width: 0;
+	height: 0;
+	border-bottom: 100px solid var(--shapeColor);
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+}
+.isoscelesTriangle {
+	width: 0;
+	height: 0;
+	border-bottom: 70px solid var(--shapeColor);
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+}
+.rightTriangle {
+	width: 0;
+	height: 0;
+	border-bottom: 100px solid var(--shapeColor);
+	border-left: 2px solid transparent;
+	border-right: 60px solid transparent;
+}
+.circle {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: var(--shapeColor);
+}
+.semicircular {
+	width: 100px;
+	height: 50px;
+	border-radius: 150px 150px 0 0;
+	background: var(--shapeColor);
+}
+.parallelogram {
+	width: 100px;
+	height: 65px;
+	background: var(--shapeColor);
+	-webkit-transform: skew(20deg);
+	-moz-transform: skew(20deg);
+	-o-transform: skew(20deg);
+	transform: skew(20deg);
+}
+
+.container .calculate_box {
+	position: relative;
+	color: var(--primaryTextColor);
+	display: grid;
+	grid-template-columns: repeat(100, 1vw);
+	grid-template-rows: repeat(5, 75px);
+}
+.container .calculate_box .selectedShape {
+	position: relative;
+	width: 45vw;
+	height: 100%;
+	color: var(--bgNav);
+	grid-column: 1/45;
+	grid-row: 1/3;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container .calculate_box .selectedShape #shapeSelect {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	object-fit: contain;
+}
+
+.container .calculate_box .calculateMode {
+	width: 55vw;
+	height: 100%;
+	grid-column: 46/100;
+	grid-row: 1/5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 50px;
+}
+.container .calculate_box .calculateMode input[type="radio"] {
+	display: none;
+}
+.container .calculate_box .calculateMode label {
+	width: 65px;
+	height: 65px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	color: var(--bgNav);
+	background: var(--bgBox);
+	box-shadow: 5px 5px 10px var(--darkShadow), -5px -5px 10px var(--lightShadow);
+	cursor: pointer;
+}
+.container .calculateMode input:checked + label {
+	box-shadow: inset 5px 5px 10px var(--darkShadow),
+		inset -5px -5px 10px var(--lightShadow);
+}
+
+.container .calculate_box .calculateMode #inputs {
+	width: 100%;
+	height: 120px;
+	margin-top: -70px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+.container .calculate_box .calculateMode #inputs label {
+	width: 100px;
+	height: 70px;
+	font-size: 1.2rem;
+	color: var(--shapeColor);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	gap: 7px;
+	box-shadow: none;
+}
+
+.container .calculate_box #inputs #length_label,
+.container
+	.calculate_box
+	.calculateMode
+	#environmentRadioBtn:checked
+	~ .rectangle_inputs
+	#width_label,
+.container
+	.calculate_box
+	.calculateMode
+	#areaRadioBtn:checked
+	~ .rectangle_inputs
+	#width_label,
+.container
+	.calculate_box
+	.calculateMode
+	#environmentRadioBtn:checked
+	~ .equilateralTriangle_inputs
+	#width_label,
+.container
+	.calculate_box
+	.calculateMode
+	#areaRadioBtn:checked
+	~ .equilateralTriangle_inputs
+	#height_label,
+.container
+	.calculate_box
+	.calculateMode
+	#areaRadioBtn:checked
+	~ .isoscelesTriangle_inputs
+	#height_label,
+.container
+	.calculate_box
+	.calculateMode
+	#environmentRadioBtn:checked
+	~ .rightTriangle_inputs
+	#width_label,
+.container
+	.calculate_box
+	.calculateMode
+	#environmentRadioBtn:checked
+	~ .rightTriangle_inputs
+	#height_label,
+.container
+	.calculate_box
+	.calculateMode
+	#areaRadioBtn:checked
+	~ .rightTriangle_inputs
+	#height_label,
+.container
+	.calculate_box
+	.calculateMode
+	#environmentRadioBtn:checked
+	~ .parallelogram_inputs
+	#width_label,
+.container
+	.calculate_box
+	.calculateMode
+	#areaRadioBtn:checked
+	~ .parallelogram_inputs
+	#height_label {
+	display: flex;
+}
+
+.container .calculate_box .calculateMode #inputs label section {
+	width: 25px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container .calculate_box .calculateMode #inputs label input {
+	width: 50px;
+	height: 50px;
+	border-radius: 5px;
+	-moz-appearance: textfield;
+	font-size: 2rem;
+	text-align: center;
+	padding-top: 5px;
+	color: var(--bgNav);
+	background: var(--bgBox);
+	box-shadow: 5px 5px 10px #0c1821, -5px -5px 10px #244762;
+}
+.container
+	.calculate_box
+	.calculateMode
+	#inputs
+	label
+	input::-webkit-outer-spin-button,
+.container .calculate_box #inputs label input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+.container .calculate_box .calculateMode #inputs label input:focus {
+	box-shadow: inset 5px 5px 10px #0c1821, inset -5px -5px 10px #244762;
+}
+
+.container .calculate_box .calculate_result {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 45vw;
+	height: 100%;
+	grid-column: 1/45;
+	grid-row: 3/5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+}
+.container .calculate_box .calculate_result .formula,
+.container .calculate_box .calculate_result .result {
+	width: 200px;
+	height: 40px;
+	border-radius: 5px;
+	font-size: 1.2rem;
+	color: var(--primaryTextColor);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	direction: rtl;
+}
+.container .calculate_box .calculate_result .formula {
+	color: var(--bgNav);
+}
+.container .calculate_box .calculate_result .result {
+	background: var(--bgNav);
+}
+
+.container .calculate_box .result_btn {
+	width: 80vw;
+	height: 100%;
+	font-size: 2rem;
+	border-radius: 10px;
+	grid-column: 11/89;
+	grid-row: 5/6;
+	color: var(--primaryTextColor);
+	background: var(--btn);
+	opacity: 0.7;
+	box-shadow: 0 3px 0 var(--btnShadow);
+	display: block;
+	margin-top: 10px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+.container .calculate_box .result_btn:hover {
+	opacity: 1;
+}
+.container .calculate_box .result_btn:active {
+	box-shadow: none;
+	margin-top: 13px;
+}
